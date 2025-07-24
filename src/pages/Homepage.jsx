@@ -52,7 +52,7 @@ export default function HomePage() {
             <img
               src={`https://logo.clearbit.com/${domain}`}
               alt={domain}
-              className="h-8 mx-auto grayscale hover:grayscale-0 transition"
+              className="h-30 mx-auto hover:grayscale-0 transition"
             />
           </div>
         ))
@@ -61,9 +61,9 @@ export default function HomePage() {
   </div>
 </section>
 {/* Job Listings Section */}
-<section className="bg-gray-50 py-20 px-6">
+<section className="bg-gray-50 py-20 px-6 text-left">
   <h2 className="text-3xl font-bold text-center mb-12">Latest Job Posts</h2>
-  <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+  <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
     {[
       {
         company: "Google",
@@ -76,6 +76,18 @@ export default function HomePage() {
         title: "UI/UX Designer",
         location: "Remote",
         salary: "₹12 - ₹20 LPA",
+      },
+      {
+        company: "Adobe",
+        title: "Full Stack Engineer",
+        location: "Gurgaon, India",
+        salary: "₹15 - ₹22 LPA",
+      },
+      {
+        company: "Amazon",
+        title: "DevOps Engineer",
+        location: "Hyderabad, India",
+        salary: "₹20 - ₹30 LPA",
       },
       {
         company: "Adobe",

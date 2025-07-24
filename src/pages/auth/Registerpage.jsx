@@ -21,7 +21,7 @@ const Registerpage = () => {
       
      <div className="flex flex-col justify-center items-center text-left">
        {
-        recruiter?<RecruitorRegister/>:<JobSeekerRegister/>
+        recruiter?<RecruitorRegister recruiter={recruiter}/>:<JobSeekerRegister recruiter={recruiter}/>
       }
       <p className="mt-6 text-center text-sm text-gray-600">
                 {recruiter?"Looking for a job instead?":"Are you a Recruiter?"}{" "}

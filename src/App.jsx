@@ -4,7 +4,10 @@ import Homepage from './pages/Homepage.jsx'
 import { ToastContainer } from 'react-toastify'
 import Registerpage from './pages/auth/Registerpage.jsx'
 import LoginPage from './pages/auth/LoginPage.jsx'
-
+import RecruiterDashboard from './pages/recruitorPages/RecruiterDashboard.jsx'
+import Unauthorized from './components/ui/Unauthorized.jsx'
+import RoleProtectedRoutes from './components/ui/RoleProtectedRoutes.jsx'
+import PageNotFound from './pages/PageNotFound.jsx'
 
 function App() {
 
@@ -15,6 +18,11 @@ function App() {
       <Route path ="/" element={<Homepage/>}/>
       <Route path ="/register" element={<Registerpage/>}/>
       <Route path ="/login" element={<LoginPage/>}/>
+      <Route path ='/recruiter/dashboard'element={
+        <RoleProtectedRoutes allowedRoles={['recruiter']}><RecruiterDashboard/>
+          </RoleProtectedRoutes>}/>
+      <Route path ="/unauthorized" element={<Unauthorized/>}/>
+      <Route path ="*" element={<PageNotFound/>}/>
 
     </Routes>
     </>

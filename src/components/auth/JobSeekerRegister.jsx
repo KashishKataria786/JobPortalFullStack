@@ -1,9 +1,49 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // If using React Router
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom"; // If using React Router
 
-const JobSeekerRegister = () => {
+const JobSeekerRegister = ({recruiter}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [cpassword, setCpassword] = useState('');
+  const [phoneno, setPhoneno] = useState('');
+  const [role, setRole] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setRole(recruiter === true ? "jobseeker" : "recruiter");
+  }, [recruiter]);
+
+  const handleRegistration = async (e) => {
+    e.preventDefault();
+
+    if (!name || !email || !password || !cpassword || !phoneno || !role) {
+      toast.error("Missing Input Fields");
+      return;
+    }
+
+    if (cpassword !== password) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
+    try {
+      const user = await axios.post(`${import.meta.env.VITE_AUTH_URL}/register-user`, {
+        name: name,
+        email: email,
+        password: password,
+        phone: phoneno,
+        role: role
+      });
+      
+      toast.success("Registration Successful");
+      navigate('/dashboard');
+    } catch (error) {
+      toast.error("Cannot Register the Candidate");
+    }
+  };
 
   return (
      <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-20">
