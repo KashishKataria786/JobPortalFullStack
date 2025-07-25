@@ -1,20 +1,19 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Layout from "../components/Layout/Layout.jsx";
 
 const PageNotFound = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      navigate(-1); // Go back to the last visited page
-    }, 3000);
+      navigate(-1); 
+    }, 2000);
 
-    return () => clearTimeout(timeout); // Cleanup
+    return () => clearTimeout(timeout);
   }, [navigate]);
 
   return (
-   <Layout>
+   <div>
      <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
       <div className="text-center">
         <h1 className="text-7xl font-bold text-blue-600 mb-4">404</h1>
@@ -28,7 +27,7 @@ const PageNotFound = () => {
         </button>
       </div>
     </div>
-   </Layout>
+   </div>
   );
 };
 

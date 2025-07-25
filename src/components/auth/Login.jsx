@@ -32,7 +32,7 @@ const Login = () => {
       }
       toast.success("Loggin In!");
       localStorage.setItem("token",user?.data?.token);
-      navigate('/recruiter/dashboard')
+      navigate('/jobs ')
     } catch (error) {
       toast.error("Error During Loging In!");
       setLoading(false);
@@ -43,7 +43,7 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen grid md:grid-cols-2 bg-white">
+    <div className="min-h-screen grid md:grid-cols-2 bg-white text-left">
       {/* Left Image / Branding */}
       <div className="hidden md:flex items-center justify-center bg-blue-50">
         <img
